@@ -1,0 +1,19 @@
+<.header>
+  Medication <%= @medication.id %>
+  <:subtitle>This is a medication record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/medications/#{@medication}/edit"}>
+      <.button>Edit medication</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Written name"><%= @medication.written_name %></:item>
+  <:item title="Brand name"><%= @medication.brand_name %></:item>
+  <:item title="Generic name"><%= @medication.generic_name %></:item>
+  <:item title="Dose"><%= @medication.dose %></:item>
+  <:item title="Dea schedule"><%= @medication.dea_schedule %></:item>
+</.list>
+
+<.back navigate={~p"/medications"}>Back to medications</.back>

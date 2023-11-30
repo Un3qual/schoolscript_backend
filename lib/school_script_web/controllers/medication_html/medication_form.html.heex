@@ -1,0 +1,13 @@
+<.simple_form :let={f} for={@changeset} action={@action}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+  <.input field={f[:written_name]} type="text" label="Written name" />
+  <.input field={f[:brand_name]} type="text" label="Brand name" />
+  <.input field={f[:generic_name]} type="text" label="Generic name" />
+  <.input field={f[:dose]} type="text" label="Dose" />
+  <.input field={f[:dea_schedule]} type="number" label="Dea schedule" />
+  <:actions>
+    <.button>Save Medication</.button>
+  </:actions>
+</.simple_form>

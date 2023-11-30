@@ -1,0 +1,22 @@
+<.header>
+  Prescription <%= @prescription.id %>
+  <:subtitle>This is a prescription record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/prescriptions/#{@prescription}/edit"}>
+      <.button>Edit prescription</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Days supply"><%= @prescription.days_supply %></:item>
+  <:item title="Is refill"><%= @prescription.is_refill %></:item>
+  <:item title="Refills remaining"><%= @prescription.refills_remaining %></:item>
+  <:item title="Prescribing doctor name"><%= @prescription.prescribing_doctor_name %></:item>
+  <:item title="Prescribed quantity"><%= @prescription.prescribed_quantity %></:item>
+  <:item title="Rx number"><%= @prescription.rx_number %></:item>
+  <:item title="Truepill token"><%= @prescription.truepill_token %></:item>
+  <:item title="Medication sig"><%= @prescription.medication_sig %></:item>
+</.list>
+
+<.back navigate={~p"/prescriptions"}>Back to prescriptions</.back>

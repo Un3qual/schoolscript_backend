@@ -1,0 +1,28 @@
+<.header>
+  Your Prescriptions
+  <:actions>
+    <.link href={~p"/prescriptions/new"}>
+      <.button>Transfer to SchoolScript</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="prescriptions" rows={@prescriptions} row_click={&JS.navigate(~p"/prescriptions/#{&1}")}>
+  <:col :let={prescription} label="Medication Name"><%= prescription.medication.written_name %></:col>
+  <:col :let={prescription} label="Days supply"><%= prescription.days_supply %></:col>
+  <:col :let={prescription} label="Refills remaining"><%= prescription.refills_remaining %></:col>
+  <:col :let={prescription} label="Prescribing doctor name"><%= prescription.prescribing_doctor_name %></:col>
+  <:col :let={prescription} label="Prescribed quantity"><%= prescription.prescribed_quantity %></:col>
+  <:col :let={prescription} label="Rx number"><%= prescription.rx_number %></:col>
+  <:action :let={prescription}>
+    <div class="sr-only">
+      <.link navigate={~p"/prescriptions/#{prescription}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/prescriptions/#{prescription}/edit"}>Request Refill</.link>
+  </:action>
+  <%!-- <:action :let={prescription}>
+    <.link href={~p"/prescriptions/#{prescription}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action> --%>
+</.table>

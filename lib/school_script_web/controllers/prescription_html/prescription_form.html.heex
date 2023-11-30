@@ -1,0 +1,16 @@
+<.simple_form :let={f} for={@changeset} action={@action}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+  <.input field={f[:days_supply]} type="number" label="Days supply" />
+  <.input field={f[:is_refill]} type="checkbox" label="Is refill" />
+  <.input field={f[:refills_remaining]} type="number" label="Refills remaining" />
+  <.input field={f[:prescribing_doctor_name]} type="text" label="Prescribing doctor name" />
+  <.input field={f[:prescribed_quantity]} type="number" label="Prescribed quantity" />
+  <.input field={f[:rx_number]} type="text" label="Rx number" />
+  <.input field={f[:truepill_token]} type="text" label="Truepill token" />
+  <.input field={f[:medication_sig]} type="text" label="Medication sig" />
+  <:actions>
+    <.button>Save Prescription</.button>
+  </:actions>
+</.simple_form>

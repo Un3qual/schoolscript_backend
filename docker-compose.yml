@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  postgresql:
+    image: postgis/postgis:16-3.4-alpine
+    container_name: schoolscript-postgres
+    environment:
+      - POSTGRES_DB=schoolscript_dev
+      - POSTGRES_PASSWORD=development
+    ports:
+      - 5432:5432
+    volumes:
+      - schoolscript_psql:/var/lib/postgresql/data
+volumes:
+  schoolscript_psql:
